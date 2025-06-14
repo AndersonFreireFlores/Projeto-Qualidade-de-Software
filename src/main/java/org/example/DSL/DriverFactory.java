@@ -1,4 +1,4 @@
-package org.example;
+package org.example.DSL;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
