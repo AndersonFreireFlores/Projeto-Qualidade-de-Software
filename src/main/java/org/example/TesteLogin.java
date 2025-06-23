@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.example.DSL.DSL;
 import org.example.DSL.DriverFactory;
+import org.example.DSL.DriverProperty;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 @RunWith(Parameterized.class)
 public class TesteLogin {
@@ -67,4 +69,15 @@ public class TesteLogin {
                 dsl.obterTexto(By.xpath(page.getPathMsgCampoVazio())));
     }
 
+    @Test
+    public void testeLoginFuncionando() throws IOException{
+        page.setEmail(email);
+        page.setSenha("ABC123");
+        page.logar();
+
+        dsl.wait(By.xpath("/html/body/app-root/app-header/header/div/a/img"));
+
+        String finalUrl = DriverFactory.getDriver().getCurrentUrl();
+        Assert.assertEquals("http://35.209.123.161/front/", dsl.obterUrl());
+    }
 }

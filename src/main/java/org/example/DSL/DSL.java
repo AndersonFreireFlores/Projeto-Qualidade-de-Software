@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DSL {
 
-    private void wait(By by) {
+    public void wait(By by) {
         WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), DriverProperty.WAIT_TIME);
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
@@ -121,5 +121,9 @@ public class DSL {
         String valor = alert.getText();
         alert.accept();
         return valor;
+    }
+
+    public String obterUrl(){
+        return DriverFactory.getDriver().getCurrentUrl();
     }
 }
