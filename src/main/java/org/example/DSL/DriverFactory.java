@@ -11,7 +11,7 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            String GECKO_DRIVER_PATH = System.getProperty("user.dir") + "/src/main/resources/webdriver/geckodriver.exe";
+            String GECKO_DRIVER_PATH = System.getProperty("user.dir") + "/src/main/resources/drivers/geckodriver.exe";
             System.setProperty("webdriver.gecko.driver", GECKO_DRIVER_PATH);
             driver = new FirefoxDriver();
         }

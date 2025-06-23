@@ -4,9 +4,10 @@ import org.example.DSL.DSL;
 
 public class LoginPage {
 
+    private String msgSenhaIncorreta = "Usuário ou senha inválidos.";
+    private String pathMsgCampoVazio = "/html/body/app-root/app-container/div/app-login/p-toast/div/p-toastitem/div/div/div/div[2]";
     private String pathMensagemSenhaIncorreta = "/html/body/app-root/app-container/div/app-login/div/div/div[2]/div/div";
     private String pathBotaoLogin = "/html/body/app-root/app-container/div/app-login/div/div/div[2]/div/form/button";
-    private String msgSenhaIncorreta = "Usuário ou senha inválidos.";
     private DSL dsl = new DSL();
 
     public void setEmail(String email) {
@@ -35,6 +36,10 @@ public class LoginPage {
 
     public String getMsgSenhaIncorreta() {
         return msgSenhaIncorreta;
+    }
+
+    public String getPathMsgCampoVazio(){
+        return pathMsgCampoVazio;
     }
 
     public void logar() {

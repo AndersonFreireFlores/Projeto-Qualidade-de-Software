@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.example.DSL.DSL;
 import org.example.DSL.DriverFactory;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,20 +37,34 @@ public class TesteLogin {
         dsl = new DSL();
     }
 
+    @After
+    public void finalizar(){
+        DriverFactory.killDriver();
+    }
+
 
     @Parameters
     public static Collection<Object[]> getCollection() {
         return Arrays.asList(new Object[][]{
-                {"tiago@gmail.com", "senha_incorreta", page.getPathMensagemSenhaIncorreta(), page.getMsgSenhaIncorreta()},
-                {"tiago@gmail.com", "123abc", page.getPathMensagemSenhaIncorreta(), page.getMsgSenhaIncorreta()}
+                {"anderson.flores@aluno.feliz.ifrs.edu.br", "senha_incorreta", page.getPathMensagemSenhaIncorreta(), page.getMsgSenhaIncorreta()},
+                {"anderson.flores@aluno.feliz.ifrs.edu.br", "123abc", page.getPathMensagemSenhaIncorreta(), page.getMsgSenhaIncorreta()}
         });
     }
 
     @Test
-    public void deveValidarRegrasNegocioLogin() throws IOException {
+    public void testeSenhaIncorreta() throws IOException {
         page.setEmail(email);
         page.setSenha(senha);
         page.logar();
         Assert.assertEquals(resposta, dsl.obterTexto(By.xpath(localResposta)));
     }
+
+    @Test
+    public void testeCampoVazio() throws IOException {
+        page.setEmail(email);
+        page.logar();
+        Assert.assertEquals("Um ou mais campos obrigatórios não preenchidos.",
+                dsl.obterTexto(By.xpath(page.getPathMsgCampoVazio())));
+    }
+
 }
