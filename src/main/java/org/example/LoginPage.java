@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.DSL.DSL;
+import org.example.DSL.Dsl;
 
 public class LoginPage {
 
@@ -8,7 +8,7 @@ public class LoginPage {
     private String pathMsgCampoVazio = "/html/body/app-root/app-container/div/app-login/p-toast/div/p-toastitem/div/div/div/div[2]";
     private String pathMensagemSenhaIncorreta = "/html/body/app-root/app-container/div/app-login/div/div/div[2]/div/div";
     private String pathBotaoLogin = "/html/body/app-root/app-container/div/app-login/div/div/div[2]/div/form/button";
-    private DSL dsl = new DSL();
+    private Dsl dsl = new Dsl();
 
     public void setEmail(String email) {
         dsl.escrever("email", email);

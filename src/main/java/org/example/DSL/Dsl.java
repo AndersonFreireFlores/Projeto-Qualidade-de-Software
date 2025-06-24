@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 // https://www.selenium.dev/documentation/pt-br/guidelines_and_recommendations/domain_specific_language/
 
-public class DSL {
+public class Dsl {
 
     public void wait(By by) {
         WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), DriverProperty.WAIT_TIME);

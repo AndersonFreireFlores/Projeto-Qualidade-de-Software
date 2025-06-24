@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.example.DSL.DSL;
+import org.example.DSL.Dsl;
 import org.example.DSL.DriverFactory;
-import org.example.DSL.DriverProperty;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,12 +15,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 @RunWith(Parameterized.class)
 public class TesteLogin {
 
-    private DSL dsl;
+    private Dsl dsl;
     private static LoginPage page = new LoginPage();
 
     @Parameter
@@ -36,7 +35,7 @@ public class TesteLogin {
     @Before
     public void inicializar() {
         DriverFactory.getDriver().get("http://35.209.123.161/front");
-        dsl = new DSL();
+        dsl = new Dsl();
     }
 
     @After
@@ -77,7 +76,6 @@ public class TesteLogin {
 
         dsl.wait(By.xpath("/html/body/app-root/app-header/header/div/a/img"));
 
-        String finalUrl = DriverFactory.getDriver().getCurrentUrl();
         Assert.assertEquals("http://35.209.123.161/front/", dsl.obterUrl());
     }
 }
