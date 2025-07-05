@@ -1,21 +1,25 @@
-package org.example;
+package org.example.Testes;
 
+import org.example.CategoriaPage;
 import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
+import org.example.LoginPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
-
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TesteCategoria {
 
     private Dsl dsl;
@@ -49,13 +53,13 @@ public class TesteCategoria {
     @Parameters
     public static Collection<Object[]> getCollection() {
         return Arrays.asList(new Object[][]{
-                {"ASD123", true},
-                {"ASD456", true}
+                {"ASD"+(int) (Math.random() * 10001), true},
+                {"ASD"+(int) (Math.random() * 10001), true}
                });
     }
 
     @Test
-    public void criarCategoria(){
+    public void test1_criarCategoria(){
         categoriaPage.clicarNovo();
         categoriaPage.setCategoria(nomeCategoria);
         categoriaPage.clicarSalvar();
@@ -69,13 +73,17 @@ public class TesteCategoria {
     }
 
     @Test
-    public void editarCategoria(){
+    public void test2_editarCategoria(){
+
             categoriaPage.setPesquisaCategoria(nomeCategoria);
             categoriaPage.clicarFiltrar();
 
             categoriaPage.clicarEditar();
-            categoriaPage.setCategoria(nomeCategoria.concat("edited"));
+            categoriaPage.setCategoria(nomeCategoria + "edited");
             categoriaPage.clicarSalvar();
+
+        categoriaPage.setPesquisaCategoria(nomeCategoria + "edited");
+        categoriaPage.clicarFiltrar();
 
             Assert.assertEquals(nomeCategoria + "edited", dsl.obterTexto(
                     By.xpath("/html/body/app-root/app-container/main/div/app-categoria/div[2]/table/tbody/tr/td[2]")
@@ -84,7 +92,7 @@ public class TesteCategoria {
     }
 
     @Test
-    public void inativarCategoria(){
+    public void test3_inativarCategoria(){
 
         categoriaPage.setPesquisaCategoria(nomeCategoria);
         categoriaPage.clicarFiltrar();
