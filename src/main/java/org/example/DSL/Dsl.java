@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -31,6 +32,37 @@ public class Dsl {
     public String obterValorCampo(String idCampo) {
         wait(By.id(idCampo));
         return DriverFactory.getDriver().findElement(By.id(idCampo)).getAttribute("value");
+    }
+
+    public void clicarBotaoComScroll(String id) {
+        WebElement element = DriverFactory.getDriver().findElement(By.xpath(id));
+        ((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+
+        waitExplicito();
+
+        DriverFactory.getDriver().findElement(By.xpath(id)).click();
+    }
+
+    public void selecionarCategoriaComScroll(String id, String nomeCategoria) {
+
+        WebElement element = DriverFactory.getDriver().findElement(By.id(id));
+        ((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+
+        waitExplicito();
+        element.click();
+        waitExplicito();
+
+        WebElement option = DriverFactory.getDriver().findElement(By.xpath("//option[contains(text(), '" + nomeCategoria + "')]"));
+        option.click();
+    }
+
+
+    private void waitExplicito() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     // Radio buttons e Checkboxes

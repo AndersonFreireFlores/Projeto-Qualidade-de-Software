@@ -6,7 +6,7 @@ import java.util.Collection;
 
 import org.example.DSL.Dsl;
 import org.example.DSL.DriverFactory;
-import org.example.LoginPage;
+import org.example.PageObjects.LoginPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

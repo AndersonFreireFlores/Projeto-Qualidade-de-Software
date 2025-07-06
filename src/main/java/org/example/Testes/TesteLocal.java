@@ -3,8 +3,8 @@ package org.example.Testes;
 
 import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
-import org.example.LocalPage;
-import org.example.LoginPage;
+import org.example.PageObjects.LocalPage;
+import org.example.PageObjects.LoginPage;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;

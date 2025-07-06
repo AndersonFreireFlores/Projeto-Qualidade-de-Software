@@ -2,8 +2,8 @@ package org.example.Testes;
 
 import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
-import org.example.LoginPage;
-import org.example.MarcaPage;
+import org.example.PageObjects.LoginPage;
+import org.example.PageObjects.MarcaPage;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;

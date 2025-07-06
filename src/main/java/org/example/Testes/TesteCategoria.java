@@ -1,9 +1,9 @@
 package org.example.Testes;
 
-import org.example.CategoriaPage;
+import org.example.PageObjects.CategoriaPage;
 import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
-import org.example.LoginPage;
+import org.example.PageObjects.LoginPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
