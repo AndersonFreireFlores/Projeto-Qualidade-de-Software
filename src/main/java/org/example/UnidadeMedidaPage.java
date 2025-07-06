@@ -4,7 +4,7 @@ import org.example.DSL.Dsl;
 
 public class UnidadeMedidaPage {
 
-    public String pathUnidadeMedida = "/html/body/app-root/app-header/header/div/div/ul[1]/li[3]/a/span";
+    public String pathUnidadeMedida = "/html/body/app-root/app-header/header/div/div/ul[1]/li[3]/a/i";
     public String pathBotaoCriarUnidadeMedida = "/html/body/app-root/app-container/main/div/app-unidade-medida/form/div/div[3]/div/button[3]";
     public String pathBotaoSalvar = "/html/body/app-root/app-container/main/div/app-unidade-medida/div[1]/div/div/form/div[2]/button[2]";
     public String pathBotaoEditar = "/html/body/app-root/app-container/main/div/app-unidade-medida/div[2]/table/tbody/tr[1]/td[3]/i";
@@ -16,7 +16,7 @@ public class UnidadeMedidaPage {
     public Dsl dsl = new Dsl();
 
     public void setUnidadeMedida(String nomeUnidadeMedida){
-        dsl.escrever("nome", nomeUnidadeMedida);
+        dsl.escrever("descricao", nomeUnidadeMedida);
     }
 
     public String getUnidadeMedida(){
@@ -24,7 +24,7 @@ public class UnidadeMedidaPage {
     }
 
     public void setPesquisaUnidadeMedida(String nomeUnidadeMedida){
-        dsl.escrever("filtro_nome", nomeUnidadeMedida);
+        dsl.escrever("filtro_descricao", nomeUnidadeMedida);
     }
 
     public String getPesquisaUnidadeMedida(){

@@ -94,7 +94,7 @@ public class TesteCategoria {
     @Test
     public void test3_inativarCategoria(){
 
-        categoriaPage.setPesquisaCategoria(nomeCategoria);
+        categoriaPage.setPesquisaCategoria(nomeCategoria + "edited");
         categoriaPage.clicarFiltrar();
 
         categoriaPage.clicarInativar();

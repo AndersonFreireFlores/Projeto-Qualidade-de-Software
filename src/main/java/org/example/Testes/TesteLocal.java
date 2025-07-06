@@ -91,7 +91,7 @@ public class TesteLocal {
     @Test
     public void test3InativarCategoria(){
 
-        localPage.setPesquisaLocal(nomeLocal);
+        localPage.setPesquisaLocal(nomeLocal + "edited");
         localPage.clicarFiltrar();
 
         localPage.clicarInativar();
