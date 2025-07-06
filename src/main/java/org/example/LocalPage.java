@@ -4,7 +4,7 @@ import org.example.DSL.Dsl;
 
 public class LocalPage {
 
-    public String pathLocal = "/html/body/app-root/app-header/header/div/div/ul[1]/li[4]/a/span";
+    public String pathLocal = "/html/body/app-root/app-header/header/div/div/ul[1]/li[4]/a";
     public String pathBotaoCriarLocal = "/html/body/app-root/app-container/main/div/app-local/form/div/div[3]/div/button[3]";
     public String pathBotaoSalvar = "/html/body/app-root/app-container/main/div/app-local/div[1]/div/div/form/div[2]/button[2]";
     public String pathBotaoEditar = "/html/body/app-root/app-container/main/div/app-local/div[2]/table/tbody/tr[1]/td[3]/i";
@@ -36,7 +36,7 @@ public class LocalPage {
     }
 
     public void clicarConfirmar (){
-        dsl.clicarBotao(pathBotaoConfirmar);
+        dsl.clicarBotao(pathBotaoSalvar);
     }
 
     public void clicarEditar (){
@@ -59,16 +59,13 @@ public class LocalPage {
         dsl.clicarBotao(pathConfirmarInativar);
     }
 
-    public void escolherRadio(boolean valor){
+    public void escolherRadio(String id,boolean valor){
         if (valor){
-            dsl.selecionarCombo("status","A");
+            dsl.selecionarCombo(id,"\uD83D\uDFE2 Ativo");
         }
         else{
-            dsl.selecionarCombo("status","I");
+            dsl.selecionarCombo(id,"\uD83D\uDD34 Inativo");
         }
     }
-
-
-
 
 }

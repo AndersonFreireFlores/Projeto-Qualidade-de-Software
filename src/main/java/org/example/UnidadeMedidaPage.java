@@ -36,7 +36,7 @@ public class UnidadeMedidaPage {
     }
 
     public void clicarConfirmar (){
-        dsl.clicarBotao(pathBotaoConfirmar);
+        dsl.clicarBotao(pathBotaoSalvar);
     }
 
     public void clicarEditar (){
@@ -59,16 +59,13 @@ public class UnidadeMedidaPage {
         dsl.clicarBotao(pathConfirmarInativar);
     }
 
-    public void escolherRadio(boolean valor){
+    public void escolherRadio(String id,boolean valor){
         if (valor){
-            dsl.selecionarCombo("status","A");
+            dsl.selecionarCombo(id,"\uD83D\uDFE2 Ativo");
         }
         else{
-            dsl.selecionarCombo("status","I");
+            dsl.selecionarCombo(id,"\uD83D\uDD34 Inativo");
         }
     }
-
-
-
 
 }

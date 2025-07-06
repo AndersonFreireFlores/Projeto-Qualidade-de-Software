@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Testes;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.example.DSL.Dsl;
 import org.example.DSL.DriverFactory;
+import org.example.LoginPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
