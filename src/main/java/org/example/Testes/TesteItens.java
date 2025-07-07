@@ -1,6 +1,5 @@
 package org.example.Testes;
 
-
 import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
 import org.example.PageObjects.ItensPage;
@@ -101,8 +100,20 @@ public class TesteItens {
         ));
     }
 
+    public void test3_adicionarSubItem(){
+
+        itensPage.setFiltroNome(nomeItem);
+        itensPage.setFiltroCodigo(codigo);
+        itensPage.clicarFiltrar();
+
+        itensPage.clicarEditar();
+
+
+
+    }
+
     @Test
-    public void test3_inativarItem(){
+    public void test4_inativarItem(){
 
         itensPage.setFiltroNome(nomeItem + "edited");
         itensPage.setFiltroCodigo(codigo);

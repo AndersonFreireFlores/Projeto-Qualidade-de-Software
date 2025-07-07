@@ -12,7 +12,6 @@ public class ItensPage {
     public String pathBotaoEditar = "/html/body/app-root/app-container/main/div/app-lista-elemento/div/table/tbody/tr/td[4]/i";
     public String pathBotaoInativar = "/html/body/app-root/app-container/main/div/app-lista-elemento/div/table/tbody/tr/td[5]/i";
     public String pathBotaoConfirmarInativar = "/html/body/app-root/app-container/main/div/app-lista-elemento/app-confirm-modal/div/div/div/div[3]/button[2]";
-    public String pathBotaoSubItens = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/nav/div/button[2]";
     public String pathBotaoVoltar = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[2]/a";
 
     public Dsl dsl = new Dsl();
@@ -57,16 +56,12 @@ public class ItensPage {
         dsl.clicarCheck("exercito");
     }
 
-    public void clicarSubItens(){
-        dsl.clicarBotao(pathBotaoSubItens);
-    }
-
     public void escolherCategoria(String nomeCategoria){
-        dsl.selecionarCategoriaComScroll("categoriaId", nomeCategoria);
+        dsl.selecionarComScroll("categoriaId", nomeCategoria);
     }
 
     public void escolherUnidadeDeMedida(String nomeUnidade){
-        dsl.selecionarCategoriaComScroll("unidadeMedidaId", nomeUnidade);
+        dsl.selecionarComScroll("unidadeMedidaId", nomeUnidade);
     }
 
     public void setFiltroCodigo(String codigo) {

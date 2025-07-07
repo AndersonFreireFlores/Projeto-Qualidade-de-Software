@@ -43,7 +43,7 @@ public class Dsl {
         DriverFactory.getDriver().findElement(By.xpath(id)).click();
     }
 
-    public void selecionarCategoriaComScroll(String id, String nomeCategoria) {
+    public void selecionarComScroll(String id, String nomeCategoria) {
 
         WebElement element = DriverFactory.getDriver().findElement(By.id(id));
         ((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);

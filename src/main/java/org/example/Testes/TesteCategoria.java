@@ -78,12 +78,12 @@ public class TesteCategoria {
     @Test
     public void test2_editarCategoria(){
 
-            categoriaPage.setPesquisaCategoria(nomeCategoria);
-            categoriaPage.clicarFiltrar();
+        categoriaPage.setPesquisaCategoria(nomeCategoria);
+        categoriaPage.clicarFiltrar();
 
-            categoriaPage.clicarEditar();
-            categoriaPage.setCategoria(nomeCategoria + "edited");
-            categoriaPage.clicarSalvar();
+        categoriaPage.clicarEditar();
+        categoriaPage.setCategoria(nomeCategoria + "edited");
+        categoriaPage.clicarSalvar();
 
         categoriaPage.setPesquisaCategoria(nomeCategoria + "edited");
         categoriaPage.clicarFiltrar();
