@@ -3,7 +3,9 @@ package org.example.Testes;
 import org.example.PageObjects.CategoriaPage;
 import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
+import org.example.PageObjects.ItensPage;
 import org.example.PageObjects.LoginPage;
+import org.example.PageObjects.UnidadeMedidaPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -25,6 +27,7 @@ public class TesteCategoria {
     private Dsl dsl;
     private static LoginPage loginPage = new LoginPage();
     private static CategoriaPage categoriaPage = new CategoriaPage();
+
 
     private String email = "anderson.flores@aluno.feliz.ifrs.edu.br";
     private String senha = "ABC123";

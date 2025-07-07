@@ -1,6 +1,7 @@
 package org.example.PageObjects;
 
 import org.example.DSL.Dsl;
+import org.openqa.selenium.By;
 
 public class ItensPage {
 
@@ -11,6 +12,8 @@ public class ItensPage {
     public String pathBotaoEditar = "/html/body/app-root/app-container/main/div/app-lista-elemento/div/table/tbody/tr/td[4]/i";
     public String pathBotaoInativar = "/html/body/app-root/app-container/main/div/app-lista-elemento/div/table/tbody/tr/td[5]/i";
     public String pathBotaoConfirmarInativar = "/html/body/app-root/app-container/main/div/app-lista-elemento/app-confirm-modal/div/div/div/div[3]/button[2]";
+    public String pathBotaoSubItens = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/nav/div/button[2]";
+    public String pathBotaoVoltar = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[2]/a";
 
     public Dsl dsl = new Dsl();
 
@@ -24,6 +27,10 @@ public class ItensPage {
 
     public void clicarSalvar() {
         dsl.clicarBotao(pathBotaoSalvar);
+    }
+
+    public void clicarVoltar(){
+        dsl.clicarBotao(pathBotaoVoltar);
     }
 
     public void clicarFiltrar() {
@@ -43,11 +50,15 @@ public class ItensPage {
     }
 
     public void clicarPF () {
-        dsl.clicarCheck("monitoradoPF");
+        dsl.clicarCheck("/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[1]/div/div/div[7]/div/div[2]/input");
     }
 
     public void clicarExercito() {
-        dsl.clicarCheck("monitoradoExercito");
+        dsl.clicarCheck("exercito");
+    }
+
+    public void clicarSubItens(){
+        dsl.clicarBotao(pathBotaoSubItens);
     }
 
     public void escolherCategoria(String nomeCategoria){
@@ -67,14 +78,13 @@ public class ItensPage {
     }
 
     public void setCodigo(String codigo) {
-        dsl.escrever("codigo", codigo);
+        dsl.escrever(By.xpath("/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[1]/div/div/div[2]/input"), codigo);
     }
 
     public void setNome(String nome) {
-        dsl.escrever("nome", nome);
+        dsl.escrever(By.xpath("/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[1]/div/div/div[3]/input"), nome);
     }
 
-    //descobrir se aceita string
     public void setValorMinimo(double valorMinimo) {
         dsl.escrever("quantidadeMinima", String.valueOf(valorMinimo));
     }
