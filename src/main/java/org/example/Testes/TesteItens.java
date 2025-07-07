@@ -42,7 +42,6 @@ public class TesteItens {
         DriverFactory.killDriver();
     }
 
-
     @Parameter
     public String nomeItem;
     @Parameter(value = 1)
@@ -53,8 +52,8 @@ public class TesteItens {
     @Parameters
     public static Collection<Object[]> getCollection(){
         return Arrays.asList(new Object[][]{
-                {"QWERTY"+(int) (Math.random() * 10001),"ASDFGH"+(int) (Math.random() * 10001), 1.0},
-                {"QWERTY"+(int) (Math.random() * 10001),"ASDFGH"+(int) (Math.random() * 10001), 5.5}
+                {"QWERTY"+(int) (Math.random() * 100001),"ASDFGH"+(int) (Math.random() * 100001), 1.0},
+                {"QWERTY"+(int) (Math.random() * 100001),"ASDFGH"+(int) (Math.random() * 100001), 5.5}
         });
     }
 
@@ -77,6 +76,43 @@ public class TesteItens {
 
         Assert.assertEquals(nomeItem,dsl.obterTexto(
                 By.xpath("/html/body/app-root/app-container/main/div/app-lista-elemento/div/table/tbody/tr/td[3]")
+        ));
+
+    }
+
+    @Test
+    public void test2_editarItem(){
+
+        itensPage.setFiltroNome(nomeItem);
+        itensPage.setFiltroCodigo(codigo);
+        itensPage.clicarFiltrar();
+
+        itensPage.clicarEditar();
+        itensPage.setNome(nomeItem + "edited");
+        itensPage.clicarSalvar();
+
+        itensPage.clicarVoltar();
+        itensPage.setFiltroNome(nomeItem + "edited");
+        itensPage.setFiltroCodigo(codigo);
+        itensPage.clicarFiltrar();
+
+        Assert.assertEquals(nomeItem + "edited",dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-lista-elemento/div/table/tbody/tr/td[3]")
+        ));
+    }
+
+    @Test
+    public void test3_inativarItem(){
+
+        itensPage.setFiltroNome(nomeItem + "edited");
+        itensPage.setFiltroCodigo(codigo);
+        itensPage.clicarFiltrar();
+
+        itensPage.clicarInativar();
+        itensPage.clicarConfirmarInativar();
+
+        Assert.assertEquals("Elemento inativado com sucesso!",dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-lista-elemento/p-toast/div/p-toastitem/div/div/div/div[2]")
         ));
 
     }

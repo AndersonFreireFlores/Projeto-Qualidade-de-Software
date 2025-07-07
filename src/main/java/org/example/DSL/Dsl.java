@@ -56,7 +56,6 @@ public class Dsl {
         option.click();
     }
 
-
     private void waitExplicito() {
         try {
             Thread.sleep(1000);
@@ -122,13 +121,10 @@ public class Dsl {
         return false;
     }
 
-    // Buttons
     public void clicarBotao(String id) {
         wait(By.xpath(id));
         DriverFactory.getDriver().findElement(By.xpath(id)).click();
     }
-
-
     // Links
     public void clicarLink(String link) {
         DriverFactory.getDriver().findElement(By.linkText(link)).click();
