@@ -55,7 +55,7 @@ public class TesteLocal {
     }
 
     @Test
-    public void test1CriarCategoria(){
+    public void test1CriarLocal(){
 
         localPage.clicarNovo();
         localPage.setLocal(nomeLocal);
@@ -69,7 +69,7 @@ public class TesteLocal {
 
     }
     @Test
-    public void test2CriarCategoriaInvalida(){
+    public void test2CriarLocalInvalida(){
 
         localPage.clicarNovo();
         localPage.setLocal(nomeLocal);
@@ -81,7 +81,7 @@ public class TesteLocal {
     }
 
     @Test
-    public void test3EditarCategoria(){
+    public void test3EditarLocal(){
 
         localPage.setPesquisaLocal(nomeLocal);
         localPage.clicarFiltrar();
@@ -100,7 +100,7 @@ public class TesteLocal {
     }
 
     @Test
-    public void test4InativarCategoria(){
+    public void test4InativarLocal(){
 
         localPage.setPesquisaLocal(nomeLocal + "edited");
         localPage.clicarFiltrar();
