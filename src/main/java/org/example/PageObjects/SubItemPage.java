@@ -3,7 +3,7 @@ package org.example.PageObjects;
 import org.example.DSL.Dsl;
 import org.openqa.selenium.By;
 
-public class SubItem {
+public class SubItemPage {
 
     public String pathFiltroNome = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[2]/div/form/div/div[3]/input";
     public String pathFiltroCodigo = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[2]/div/form/div/div[2]/input";
@@ -14,6 +14,8 @@ public class SubItem {
     public String pathBotaoFiltrar = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[2]/div/form/div/div[4]/div/button[2]";
     public String pathBotaoSalvarSubItems = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[2]/button";
     public String pathBotaoItem = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/nav/div/button[1]";
+    public String pathBotaoNovo = "/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[2]/div/form/div/div[4]/div/button[3]";
+
 
     public Dsl dsl = new Dsl();
 
@@ -33,6 +35,10 @@ public class SubItem {
 
     public void clicarFiltrar(){
         dsl.clicarBotao(pathBotaoFiltrar);
+    }
+
+    public void clicarNovoSubItem(){
+        dsl.clicarBotao(pathBotaoNovo);
     }
 
     public void clicarVoltarItemMenu(){

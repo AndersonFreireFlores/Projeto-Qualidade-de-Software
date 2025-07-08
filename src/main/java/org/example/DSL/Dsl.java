@@ -38,6 +38,7 @@ public class Dsl {
         WebElement element = DriverFactory.getDriver().findElement(By.xpath(id));
         ((JavascriptExecutor) DriverFactory.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
 
+
         waitExplicito();
 
         DriverFactory.getDriver().findElement(By.xpath(id)).click();

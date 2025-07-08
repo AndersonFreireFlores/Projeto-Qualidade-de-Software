@@ -4,6 +4,7 @@ import org.example.DSL.DriverFactory;
 import org.example.DSL.Dsl;
 import org.example.PageObjects.ItensPage;
 import org.example.PageObjects.LoginPage;
+import org.example.PageObjects.SubItemPage;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -21,6 +22,7 @@ public class TesteItens {
     private Dsl dsl;
     private static ItensPage itensPage = new ItensPage();
     private static LoginPage loginPage = new LoginPage();
+    private static SubItemPage subItemPage = new SubItemPage();
 
     private String email = "anderson.flores@aluno.feliz.ifrs.edu.br";
     private String senha = "ABC123";
@@ -47,12 +49,18 @@ public class TesteItens {
     public String codigo;
     @Parameter(value = 2)
     public double valorMinimo;
+    @Parameter(value = 3)
+    public String nomeSubItem;
+    @Parameter(value = 4)
+    public String codigoSubItem;
 
     @Parameters
     public static Collection<Object[]> getCollection(){
         return Arrays.asList(new Object[][]{
-                {"QWERTY"+(int) (Math.random() * 100001),"ASDFGH"+(int) (Math.random() * 100001), 1.0},
-                {"QWERTY"+(int) (Math.random() * 100001),"ASDFGH"+(int) (Math.random() * 100001), 5.5}
+                {"QWERTY"+(int) (Math.random() * 100001),"ASDFGH"+(int) (Math.random() * 100001), 1.0,
+                        "ZXC"+(int) (Math.random() * 100001),"ASD"+(int) (Math.random() * 100001)},
+                {"QWERTY"+(int) (Math.random() * 100001),"ASDFGH"+(int) (Math.random() * 100001), 5.5,
+                        "ZXC"+(int) (Math.random() * 100001),"ASD"+(int) (Math.random() * 100001)}
         });
     }
 
@@ -100,15 +108,32 @@ public class TesteItens {
         ));
     }
 
+    @Test
     public void test3_adicionarSubItem(){
 
-        itensPage.setFiltroNome(nomeItem);
+        itensPage.setFiltroNome(nomeItem + "edited");
         itensPage.setFiltroCodigo(codigo);
         itensPage.clicarFiltrar();
 
         itensPage.clicarEditar();
+        subItemPage.clicarSubItens();
+        subItemPage.clicarNovoSubItem();
 
+        subItemPage.setNomeCadastro(nomeSubItem);
+        subItemPage.setCodigoCadastro(codigoSubItem);
+        subItemPage.setLocal("teste");
+        subItemPage.setMarca("teste");
+        subItemPage.setQuantidade(1);
+        subItemPage.setValidade("2025-07-30");
+        subItemPage.clicarSalvar();
 
+        subItemPage.clicarSalvarSubItems();
+
+        subItemPage.clicarFiltrar();
+
+        Assert.assertEquals(nomeSubItem, dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[2]/div/table/tbody/tr/td[3]")
+        ));
 
     }
 
