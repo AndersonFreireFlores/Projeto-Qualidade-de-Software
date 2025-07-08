@@ -57,7 +57,7 @@ public class Dsl {
         option.click();
     }
 
-    private void waitExplicito() {
+    public void waitExplicito() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

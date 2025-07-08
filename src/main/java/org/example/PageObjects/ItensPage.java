@@ -88,12 +88,4 @@ public class ItensPage {
         dsl.escrever("observacoes", observacoes);
     }
 
-    public void escolherRadio(String id, boolean valor) {
-        if (valor) {
-            dsl.selecionarCombo(id, "\uD83D\uDFE2 Ativo");
-        } else {
-            dsl.selecionarCombo(id, "\uD83D\uDD34 Inativo");
-        }
-
-    }
 }

@@ -31,6 +31,11 @@ public class EstoquePage {
     }
 
     public void clicarFiltrar(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         dsl.clicarBotao(pathBotaoFiltrar);
     }
 
@@ -39,7 +44,8 @@ public class EstoquePage {
     }
 
     public void setData(String data){
-        dsl.escrever("cadastroData",data);
+
+        dsl.escrever("cadastroData", data);
     }
 
     public void setItem(String nome){
@@ -64,6 +70,13 @@ public class EstoquePage {
 
     public void setItemFiltro(String item){
         dsl.selecionarComScroll("filtro_elemento", item);
+    }
+
+    public void setDataInicial(String data){
+        dsl.escrever("dataInicial", data);
+    }
+    public void setDataFinal(String data){
+        dsl.escrever("dataFinal", data);
     }
 
 }

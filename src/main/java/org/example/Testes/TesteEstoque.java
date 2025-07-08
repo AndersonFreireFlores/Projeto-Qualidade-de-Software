@@ -48,8 +48,8 @@ public class TesteEstoque {
     @Parameterized.Parameters
     public static Collection<Object[]> getCollection(){
         return Arrays.asList(new Object[][]{
-                {"2025-07-09", 1.5},
-                {"2025-08-10", 9.9}
+                {"2025-07-09T12:00", 1.5},
+                {"2025-08-10T12:00", 9.9}
         });
     }
 
@@ -59,13 +59,15 @@ public class TesteEstoque {
         estoquePage.clicarCriarEstoque();
         estoquePage.setData(data);
         estoquePage.setTipo("Entrada");
-        estoquePage.setItem("Item DG 4165a57b");
-        estoquePage.setSubItem("Subitem DG bf0ebbe7");
+        estoquePage.setItem("Item1");
+        estoquePage.setSubItem("SubItem1");
         estoquePage.setQtde(qtde);
         estoquePage.setObs("É importante observar que essa observação é extremamente observativa sobre sua observabilidade...");
         estoquePage.clicarSalvar();
 
-        estoquePage.setItemFiltro("Item DG 4165a57b");
+
+        estoquePage.setDataInicial("5070-02-02");
+        estoquePage.setDataFinal("5070-02-02");
         estoquePage.clicarFiltrar();
 
         Assert.assertEquals("AndersonFlores", dsl.obterTexto(
@@ -75,12 +77,15 @@ public class TesteEstoque {
 
     @Test
     public void test3_excluirEstoque(){
-        estoquePage.setItemFiltro("Item DG 4165a57b");
+
+        estoquePage.setDataInicial("5070-02-02");
+        estoquePage.setDataFinal("5070-02-02");
+        estoquePage.clicarFiltrar();
         estoquePage.clicarExcluir();
         estoquePage.clicarBotaoConfirmarExcluir();
 
 
-        Assert.assertEquals("Movimentação excluída com sucesso!\n", dsl.obterTexto(
+        Assert.assertEquals("Movimentação excluída com sucesso!", dsl.obterTexto(
                 By.xpath("/html/body/app-root/app-container/main/div/app-movimentacao/p-toast/div/p-toastitem/div/div/div/div[2]")));
     }
 
