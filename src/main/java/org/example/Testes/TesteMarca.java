@@ -66,9 +66,18 @@ public class TesteMarca {
         Assert.assertEquals(nomeMarca, dsl.obterTexto(
                 By.xpath("/html/body/app-root/app-container/main/div/app-marca/div[2]/table/tbody/tr/td[2]")));
     }
-
     @Test
-    public void test2EditarMarca(){
+    public void test2CriarMarcaInvalida(){
+
+        marcaPage.clicarNovo();
+        marcaPage.setMarca(nomeMarca);
+        marcaPage.clicarConfirmar();
+
+        Assert.assertEquals("Já existe uma Marca com o mesmo nome!", dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-marca/p-toast/div/p-toastitem/div/div/div/div[2]")));
+    }
+    @Test
+    public void test3EditarMarca(){
         marcaPage.setPesquisaMarca(nomeMarca);
         marcaPage.clicarFiltrar();
 
@@ -85,7 +94,7 @@ public class TesteMarca {
     }
 
     @Test
-    public void test3InativarMarca(){
+    public void test4InativarMarca(){
         marcaPage.setPesquisaMarca(nomeMarca + "edited");
         marcaPage.clicarFiltrar();
 

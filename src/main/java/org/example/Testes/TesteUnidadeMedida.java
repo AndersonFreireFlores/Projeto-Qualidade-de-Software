@@ -68,7 +68,18 @@ public class TesteUnidadeMedida {
     }
 
     @Test
-    public void test2EditarUnidadeMedida(){
+    public void test2CriarUnidadeMedidaInvalida(){
+        unidadeMedidaPage.clicarNovo();
+        unidadeMedidaPage.setUnidadeMedida(nomeUnidadeMedida);
+        unidadeMedidaPage.clicarConfirmar();
+
+        Assert.assertEquals("Já existe uma Unidade de Medida com a mesma descrição!", dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-unidade-medida/p-toast/div/p-toastitem/div/div/div/div[2]")
+        ));
+    }
+
+    @Test
+    public void test3EditarUnidadeMedida(){
         unidadeMedidaPage.setPesquisaUnidadeMedida(nomeUnidadeMedida);
         unidadeMedidaPage.clicarFiltrar();
 
@@ -85,7 +96,7 @@ public class TesteUnidadeMedida {
     }
 
     @Test
-    public void test3InativarUnidadeMedida(){
+    public void test4InativarUnidadeMedida(){
         unidadeMedidaPage.setPesquisaUnidadeMedida(nomeUnidadeMedida);
         unidadeMedidaPage.clicarFiltrar();
 

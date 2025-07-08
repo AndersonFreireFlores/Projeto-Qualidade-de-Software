@@ -76,7 +76,7 @@ public class TesteEstoque {
     }
 
     @Test
-    public void test3_excluirEstoque(){
+    public void test2_excluirEstoque(){
 
         estoquePage.setDataInicial("5070-02-02");
         estoquePage.setDataFinal("5070-02-02");

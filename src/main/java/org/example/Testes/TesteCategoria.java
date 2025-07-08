@@ -76,7 +76,18 @@ public class TesteCategoria {
     }
 
     @Test
-    public void test2_editarCategoria(){
+    public void test2_criarCategoriaInvalida(){
+
+        categoriaPage.clicarNovo();
+        categoriaPage.setCategoria(nomeCategoria);
+        categoriaPage.clicarSalvar();
+
+        Assert.assertEquals("Já existe uma Categoria com o mesmo nome!", dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-categoria/p-toast/div/p-toastitem/div/div/div/div[2]")));
+    }
+
+    @Test
+    public void test3_editarCategoria(){
 
         categoriaPage.setPesquisaCategoria(nomeCategoria);
         categoriaPage.clicarFiltrar();
@@ -95,7 +106,7 @@ public class TesteCategoria {
     }
 
     @Test
-    public void test3_inativarCategoria(){
+    public void test4_inativarCategoria(){
 
         categoriaPage.setPesquisaCategoria(nomeCategoria + "edited");
         categoriaPage.clicarFiltrar();

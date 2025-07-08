@@ -88,7 +88,23 @@ public class TesteItens {
     }
 
     @Test
-    public void test2_editarItem(){
+    public void test2_criarItemIvalido(){
+
+        itensPage.clicarNovo();
+        itensPage.setCodigo(codigo);
+        itensPage.setNome(nomeItem);
+        itensPage.escolherCategoria("CategoriaPlaceholder");
+        itensPage.escolherUnidadeDeMedida("grama");
+        itensPage.setObservacoes("É importante observar que essa observação é extremamente observativa sobre sua observabilidade...");
+        itensPage.setValorMinimo(valorMinimo);
+        itensPage.clicarSalvar();
+
+        Assert.assertEquals("Error: Já existe um Elemento com o mesmo código!",dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-cadastro-elemento/p-toast/div/p-toastitem/div/div/div/div[2]")));
+    }
+
+    @Test
+    public void test3_editarItem(){
 
         itensPage.setFiltroNome(nomeItem);
         itensPage.setFiltroCodigo(codigo);
@@ -109,7 +125,7 @@ public class TesteItens {
     }
 
     @Test
-    public void test3_adicionarSubItem(){
+    public void test4_adicionarSubItem(){
 
         itensPage.setFiltroNome(nomeItem + "edited");
         itensPage.setFiltroCodigo(codigo);
@@ -137,7 +153,7 @@ public class TesteItens {
     }
 
     @Test
-    public void test4_inativarItem(){
+    public void test5_inativarItem(){
 
         itensPage.setFiltroNome(nomeItem + "edited");
         itensPage.setFiltroCodigo(codigo);

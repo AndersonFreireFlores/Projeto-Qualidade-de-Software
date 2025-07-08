@@ -68,9 +68,20 @@ public class TesteLocal {
                 By.xpath("/html/body/app-root/app-container/main/div/app-local/div[2]/table/tbody/tr/td[2]")));
 
     }
+    @Test
+    public void test2CriarCategoriaInvalida(){
+
+        localPage.clicarNovo();
+        localPage.setLocal(nomeLocal);
+        localPage.clicarConfirmar();
+
+        Assert.assertEquals("Já existe um Local com o mesmo nome!", dsl.obterTexto(
+                By.xpath("/html/body/app-root/app-container/main/div/app-local/p-toast/div/p-toastitem/div/div/div/div[2]")));
+
+    }
 
     @Test
-    public void test2EditarCategoria(){
+    public void test3EditarCategoria(){
 
         localPage.setPesquisaLocal(nomeLocal);
         localPage.clicarFiltrar();
@@ -89,7 +100,7 @@ public class TesteLocal {
     }
 
     @Test
-    public void test3InativarCategoria(){
+    public void test4InativarCategoria(){
 
         localPage.setPesquisaLocal(nomeLocal + "edited");
         localPage.clicarFiltrar();
