@@ -119,17 +119,16 @@ public class TesteItens {
         subItemPage.clicarSubItens();
         subItemPage.clicarNovoSubItem();
 
+        subItemPage.setQuantidade(1);
+        subItemPage.setValidade("2025-07-07");
         subItemPage.setNomeCadastro(nomeSubItem);
         subItemPage.setCodigoCadastro(codigoSubItem);
         subItemPage.setLocal("teste");
-        subItemPage.setMarca("teste");
-        subItemPage.setQuantidade(1);
-        subItemPage.setValidade("2025-07-30");
+        subItemPage.setMarca("Marca DG 066fd872");
         subItemPage.clicarSalvar();
 
         subItemPage.clicarSalvarSubItems();
 
-        subItemPage.clicarFiltrar();
 
         Assert.assertEquals(nomeSubItem, dsl.obterTexto(
                 By.xpath("/html/body/app-root/app-container/main/div/app-cadastro-elemento/form/div[1]/div[2]/div/table/tbody/tr/td[3]")
